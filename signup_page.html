@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+ <html>
+ <head>
+  <title>Sign Up</title>
+  <link rel="stylesheet" href="signup.css">
+  <link rel="stylesheet" href="homepage.css">
+<script>
+function allLetter(inputtxt)
+  {
+   var letters = /^[A-Za-z]+$/;
+   if(inputtxt.value.match(letters))
+     {
+      return true;
+     }
+   else
+     {
+     alert("No Numbers in this Field");
+document.Sign_up.name.blur();
+	document.Sign_up.email.blur();
+     return false;
+     }
+
+  }
+function email_verify()
+{
+var mail_id=document.Sign_up.email.value
+if(mail_id.indexOf("@")==-1)
+{
+alert("Please enter a valid email id");
+document.Sign_up.email.blur();
+document.Sign_up.name.blur();
+}
+}
+
+</script>
+</head>
+ <body>
+   <h1>SIGN-UP PAGE</h1>
+       <div class="center">
+       <ul id="modul" class="center">
+           <li class="mod"><a href="homepage.html">Home</a></li>
+           <li class="mod"><a href="new.html">New Schedule</a></li>
+           <li class="mod"><a href="To_do_list.html">Pre-existing Schedules</a></li>
+           <li class="mod"><a href="tp.html">Terms and Conditions</a></li>
+           <li class="mod"><a href="login.html">Login</a></li>
+     <li class="mod"><a href="signup_page.html">SignUp</a></li>
+       </ul>
+       </div>
+    <form name="Sign_up">
+     <fieldset>
+        <legend>User information</legend>
+        <label>Enter your full name</label><br>
+        <input type="text" name="name" id="name" onblur="allLetter(document.Sign_up.name)" ><br>
+         <label>Enter your email</label><br>
+         <input type="email" name="email" onblur="email_verify()"><br>
+         <label>Enter your password</label><br>
+         <input type="password" name="pass"><br>
+         <label>confirm your password</label><br>
+         <input type="password" name="pass"><br>
+         <br><label>Enter your gender</label><br>
+         <input type="radio" id="gender" name="gender" value="male"/>Male  <br>
+         <input type="radio" id="gender" name="gender" value="female"/>Female <br/>
+         <input type="radio" id="gender" name="gender" value="others"/>others <br/>
+          <br>Enter your Suggestion:<br>
+         <textarea></textarea><br>
+	        <div id="button">
+            <button>SIGN UP</button>
+          </div>
+     </fieldset>
+  </form>
+  <h3 id="bot">For further assitance <a href="mailto:tceshedule@gmail.com" target="_blank" rel="noopener noreferrer">CONTACT US</a>.</h3>
+ </body>
+</html>

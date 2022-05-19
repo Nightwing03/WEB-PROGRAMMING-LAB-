@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<link rel = "stylesheet" href = "login.css">
+	<link rel = "stylesheet" href = "homepage.css">
+	<title>LOGIN PAGE</title>
+	<script> 
+	let text = '{"users":[' + '{"name":"Dhanushwaran","pass":"Sweet" },' + '{"name":"Nandha","pass":"Hello" },' + '{"name":"Sivaraman","pass":"Pizza" }]}';
+	const obj = JSON.parse(text); 
+	function validateform(){  
+		var name=document.getElementById("login_form").uname.value;  
+		var password=document.getElementById("login_form").pwd.value;  
+  
+		if (name==null || name==""){  
+  			alert("Name can't be blank");  
+  			return false;  
+		}
+		else if(password.length<3){  
+  			alert("Password must be at least 6 characters long.");  
+  			return false;  
+  		}
+		
+		for (let x in obj.users){
+	 		if(obj.users[x].name==name && obj.users[x].pass==password){
+				alert("You have successfully logged in");
+				return true;
+			}
+		}
+	alert("Wrong credentials");
+	return false;  
+	}  
+</script>
+</head>
+<body>
+	<h1>LOGIN PAGE</h1>
+    	<div class="center">
+    	<ul id="modul" class="center">
+      		<li class="mod"><a href="homepage.html">Home</a></li>
+      		<li class="mod"><a href="new.html">New Schedule</a></li>
+      		<li class="mod"><a href="To_do_list.html">Pre-existing Schedules</a></li>
+      		<li class="mod"><a href="tp.html">Terms and Conditions</a></li>
+      		<li class="mod"><a href="login.html">Login</a></li>
+		<li class="mod"><a href="signup_page.html">SignUp</a></li>
+    	</ul>
+    	</div>
+	<br>
+	<div id="login_div">
+	<form id="login_form" name="login_form" method="post" action="homepage.html" onsubmit="return validateform()">
+		<label for = "uname">USER NAME</label><br>
+		<input type = "text" id = "uname" name = "uname"><br>
+		<label for = "pwd">PASSWORD</label><br>
+		<input type = "password" id = "pwd" name = "pwd">
+		<input id = "button" type = "submit" value = "LOG IN">
+	</form>
+	</div>
+	<h3 id="bot">For further assitance <a href="mailto:tceshedule@gmail.com" target="_blank" rel="noopener noreferrer">CONTACT US</a>.</h3>
+</body>
+</html>
